@@ -1,4 +1,4 @@
-# DevOpsTeam1
+# DevOpsTeam1 1,2
 Deploying a HTML Site with Docker and Nginx
 Create a directory Team1 under c:\users\ABC
 Create a txt file without extension and named it Dockerfile and save the following value
