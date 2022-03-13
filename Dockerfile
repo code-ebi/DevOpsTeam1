@@ -1,4 +1,4 @@
 FROM httpd:alpine
 
-ADD ./html/ /usr/local/apache2/htdocs/
+ADD ./team1.html/ /usr/local/apache2/htdocs/
 
