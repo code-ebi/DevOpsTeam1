@@ -13,13 +13,7 @@ pipeline {
               sh """
                 docker container run project-website -p 84:80 -d
               """
-            }
-        }
-        stage('Deploy') {
-            steps {
-              echo """
-                Deploying....
-              """
+         
             }
         }
     }
