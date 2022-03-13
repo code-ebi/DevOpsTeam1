@@ -4,14 +4,14 @@ pipeline {
             stage('Build') {
                 steps {
                   sh """
-                    docker build -t project-website:v1.0.4 .
+                    docker build -t project-website:v1.0.5 .
                       """
                 }
             }
             stage("Run") {
                 steps {
                   sh """
-                    docker run -d --name fifth-container -p 84:80 project-website:v1.0.4
+                    docker run -d --name sixth-container -p 84:80 project-website:v1.0.5
                     """
 
                 }
@@ -19,7 +19,7 @@ pipeline {
             stage('Test') {
                 steps {
                     sh """
-                      curl localhost:80
+                      curl localhost:84
                       """
                 }
             }
