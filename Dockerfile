@@ -4,4 +4,4 @@ RUN apk add apache2
 ADD . /usr/share/nginx/html/
 ENTRYPOINT apachectl -D FOREGROUND
 ENV name Awesome
-CMD ["sleep","20"]
+CMD ["sleep","5"]
