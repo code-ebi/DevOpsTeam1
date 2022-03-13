@@ -11,7 +11,7 @@ pipeline {
             stage("Run") {
                 steps {
                   sh """
-                    docker run -d --name second-container -p 84:80 project-website:v1.0.2
+                    docker run -d --name third-container -p 84:80 project-website:v1.0.2
                     """
 
                 }
