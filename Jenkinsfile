@@ -11,7 +11,7 @@ pipeline {
         stage("Run") {
             steps {
               sh """
-                docker run -rm project-website
+                docker run --rm project-website
               """
             }
         }
