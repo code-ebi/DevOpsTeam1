@@ -1,6 +1,6 @@
-FROM nginx:alpine
-RUN apk update
-RUN apk add apache2
+FROM ubuntu
+RUN apt-get update
+RUN apt-get -y install apache2
 ADD . /usr/share/nginx/html/
 ENTRYPOINT apachectl -D FOREGROUND
 ENV name Awesome
