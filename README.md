@@ -1,17 +1,17 @@
-# DevOpsTeam1 1,2,3,x1,5,6
-Deploying a HTML Site with Docker and Nginx
+# DevOpsTeam1  
+Deploying a HTML Site with Docker and httpd
 Create a directory Team1 under c:\users\ABC
 Create a txt file without extension and named it Dockerfile and save the following value
-    FROM nginx:alpine
-    COPY . /usr/share/nginx/html
+    FROM httpd:alpine
+    COPY ./team1.html/ /usr/local/apache2/htdocs/
 Build the Docker image for the html server
-    docker build -t html-server-image:v1 .
+    docker build -t project-website:v1.0.0 .
 confirm the creation...
     docker images
 Run the Docker container
-    docker run -d -p 80:80 html-server-image:v1
+    docker run -d --name first-container -p 84:80 project-website:v1.0.0
 Test the port's availability
-    curl localhost:80
+    curl localhost:84
 
 Create a “DevOpsTeam1” folder in Team1 location. Move Docker and team1.html file there.
 Open VS code to include the container to push in GIT
@@ -35,5 +35,3 @@ git push origin DOps
       remote:
       To https://github.com/Famura17/DevOpsTeam1.git
       * [new branch]      DOps -> DOps
-      
-      
