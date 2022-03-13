@@ -8,21 +8,37 @@ pipeline {
                       """
                 }
             }
-            stage("Run") {
-                steps {
-                  sh """
-                    docker run -d --name seventh-container -p 84:80 project-website:v1.0.6
-                    """
-
+            stage('Login') {
+                    steps {
+                    withCredentials([string(credentialsId: 'techwonder', variable: 'dockerhubpwd')]) {
+                        sh """
+                        docker login -u techwonder -p ${dockerhubpwd}
+                          """
+                    }
                 }
             }
-            stage('Test') {
-                steps {
-                    sh """
-                      curl localhost:84
-                      """
+            stage('push') {
+                    steps {
+                      sh """
+                      docker psuh project-website:v1.0.6
+                         """
                 }
             }
+            // stage("Run") {
+                // steps {
+                  // sh """
+                    // docker run -d --name seventh-container -p 84:80 project-website:v1.0.6
+                    // """
 
+                // }
+            // }
+            // stage('Test') {
+                // steps {
+                    // sh """
+                      // curl localhost:84
+                      // """
+                // }
+            // }
+
+        }
     }
-}
