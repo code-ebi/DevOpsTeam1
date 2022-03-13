@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
               sh """
-                docker build -t project-website .'
+                docker build -t project-website .
                   """
             }
         }
