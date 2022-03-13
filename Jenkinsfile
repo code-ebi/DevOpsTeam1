@@ -4,14 +4,14 @@ pipeline {
             stage('Build') {
                 steps {
                   sh """
-                    docker build -t project-website:v1.0.5 .
+                    docker build -t project-website:v1.0.6 .
                       """
                 }
             }
             stage("Run") {
                 steps {
                   sh """
-                    docker run -d --name sixth-container -p 84:80 project-website:v1.0.5
+                    docker run -d --name seventh-container -p 84:80 project-website:v1.0.6
                     """
 
                 }
