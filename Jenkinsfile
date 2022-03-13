@@ -10,7 +10,7 @@ pipeline {
             }
             stage('Login') {
                     steps {
-                    withCredentials([string(credentialsId: 'techwonder', variable: 'dockerhubpwd')]) {
+                    withCredentials([string(credentialsId: 'docker-pwd', variable: 'DockerHubPwd')]) {
                         sh """
                         docker login -u techwonder -p ${dockerhubpwd}
                           """
