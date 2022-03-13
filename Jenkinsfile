@@ -11,10 +11,7 @@ pipeline {
         stage("Run") {
             steps {
               sh """
-                docker run --entrypoint "/bin/sh" -it alpine/git
-              """
-              sh """
-              docker run -it -p 84:80 -d project-website /bin/bash
+                docker run -it -p 84:80 -d project-website /bin/bash
                 """
          
             }
