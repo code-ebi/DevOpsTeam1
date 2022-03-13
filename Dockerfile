@@ -1,4 +1,4 @@
-FROM Binaries
+FROM binaries
 RUN apt-get update
 RUN apt-get -y install apache2
 ADD . /usr/share/nginx/html/
