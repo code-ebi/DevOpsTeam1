@@ -12,7 +12,7 @@ pipeline {
                     steps {
                     withCredentials([string(credentialsId: 'dockerhub-jenkinsMaster', variable: 'DockerHubPwd2')]) {
                         sh """
-                        docker login -u techwonder -p ${dockerhub2}
+                        docker login -u techwonder -p ${DockerHubPwd2}
                           """
                     }
                 }
