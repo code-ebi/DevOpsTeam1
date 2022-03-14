@@ -4,7 +4,7 @@ pipeline {
             stage('Build') {
                 steps {
                   sh """
-                    docker build -t project-website:v1.0.6 .
+                    docker build -t techwonder/project-website:v1.0.6 .
                       """
                 }
             }
@@ -20,7 +20,7 @@ pipeline {
             stage('push') {
                     steps {
                       sh """
-                      docker push project-website:v1.0.6
+                      docker push techwonder/project-website:v1.0.6
                          """
                 }
             }
