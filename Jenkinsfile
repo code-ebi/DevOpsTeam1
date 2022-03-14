@@ -27,8 +27,8 @@ pipeline {
             stage("Run") {
                 steps {
                   sh """
-                    // docker run --name projectwebsitecontainer2 --detach -p 84:80 techwonder/project-website:latest
-                    // """
+                    docker run --name project-website-container --detach -p 84:80 techwonder/project-website:latest
+                    """
 
                 }
             }
