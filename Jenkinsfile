@@ -39,7 +39,17 @@ pipeline {
                       """
                 }
             }
-
+            stage('Deploy to external Webserver') {
+            steps {
+                def dockerRun = 'docker run -p 6060:6060 -d --name website techwonder/project-website:latest'
+                sshagent(['DevOps-server']) {
+                sh """
+                  ssh -o StrictHostKeyChecking=no -l ssh root@178.128.42.64 ${dockerRun}
+                  """
+                    }
+                }
+            }
+            
         }
     }
 
