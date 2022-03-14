@@ -27,7 +27,7 @@ pipeline {
             stage("Run") {
                 steps {
                   sh """
-                    // docker run -d --name seventh-container -p 84:80 project-website:latest
+                    // docker run -d --rm --name project-website-container -p 84:80 project-website:latest
                     // """
 
                 }
