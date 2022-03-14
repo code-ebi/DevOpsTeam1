@@ -4,7 +4,7 @@ pipeline {
             stage('Build') {
                 steps {
                   sh """
-                    docker build -t techwonder/project-website:v1.0.6 .
+                    docker build -t techwonder/project-website:latest .
                       """
                 }
             }
@@ -20,25 +20,25 @@ pipeline {
             stage('push') {
                     steps {
                       sh """
-                      docker push techwonder/project-website:v1.0.6
+                      docker push techwonder/project-website:latest
                          """
                 }
             }
-            // stage("Run") {
-                // steps {
-                  // sh """
-                    // docker run -d --name seventh-container -p 84:80 project-website:v1.0.6
+            stage("Run") {
+                steps {
+                  sh """
+                    // docker run -d --name seventh-container -p 84:80 project-website:latest
                     // """
 
-                // }
-            // }
-            // stage('Test') {
-                // steps {
-                    // sh """
-                      // curl localhost:84
-                      // """
-                // }
-            // }
+                }
+            }
+            stage('Test') {
+                steps {
+                    sh """
+                      curl localhost:84
+                      """
+                }
+            }
 
         }
     }
