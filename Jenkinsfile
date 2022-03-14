@@ -20,7 +20,7 @@ pipeline {
             stage('push') {
                     steps {
                       sh """
-                      docker psuh project-website:v1.0.6
+                      docker push project-website:v1.0.6
                          """
                 }
             }
