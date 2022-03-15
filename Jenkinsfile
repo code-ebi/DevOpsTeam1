@@ -27,7 +27,10 @@ pipeline {
             stage("Run") {
                 steps {
                   sh """
-                    docker run --rm --name project-website-container2 --detach -p 84:80 techwonder/project-website:latest
+                    docker stop project-website && docker rm project-website
+                    """
+                  sh """
+                    docker run --name project-website --detach -p 84:80 techwonder/project-website:latest
                     """
 
                 }
@@ -37,15 +40,6 @@ pipeline {
                     sh """
                       curl localhost:84
                       """
-                }
-            }
-            stage('Deploy to external Webserver') {
-            steps {
-                sshagent(credentials: ['web-server-master-jenkins']) {
-                sh """
-                  ssh -o StrictHostKeyChecking=no ubuntu@138.68.188.91
-                  """
-                    }
                 }
             }
             
