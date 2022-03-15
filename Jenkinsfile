@@ -27,7 +27,7 @@ pipeline {
             stage("Run") {
                 steps {
                   sh """
-                    docker run --name project-website-container --detach -p 84:80 techwonder/project-website:latest
+                    docker run --rm --name project-website-container2 --detach -p 84:80 techwonder/project-website:latest
                     """
 
                 }
@@ -41,12 +41,9 @@ pipeline {
             }
             stage('Deploy to external Webserver') {
             steps {
-                sshagent(['DevOps-server']) {
+                sshagent(credentials: ['web-server-master-jenkins']) {
                 sh """
-                  ssh -o StrictHostKeyChecking=no -l ssh root@178.128.42.64
-                  """
-                sh """
-                  docker run -p 6060:6060 -d --name website techwonder/project-website:latest
+                  ssh -o StrictHostKeyChecking=no ubuntu@138.68.188.91
                   """
                     }
                 }
